@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Emperor Data Hub</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #111827;
+    }
+
+    header {
+      background: #071a52;
+      color: white;
+      padding: 18px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-content {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .crown {
+      font-size: 25px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #071a52, #0d47a1);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px 15px 50px;
+    }
+
+    .section-title {
+      font-size: 23px;
+      margin: 15px 0;
+    }
+
+    .network {
+      margin-top: 25px;
+    }
+
+    .network-title {
+      font-size: 19px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 15px;
+      padding: 18px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .product h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    button {
+      border: none;
+      background: #f5c400;
+      color: #111;
+      font-weight: bold;
+      padding: 11px 16px;
+      border-radius: 9px;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .order-box {
+      background: white;
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .order-box h2 {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+
+    .order-summary {
+      background: #f1f5f9;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 18px 0;
+      line-height: 1.8;
+    }
+
+    .buy-button {
+      background: #0a8f32;
+      color: white;
+      font-size: 17px;
+    }
+
+    .notice {
+      margin-top: 20px;
+      background: #fff7d6;
+      border-left: 5px solid #f5c400;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      background: #071a52;
+      color: white;
+      padding: 25px 15px;
+    }
+
+    @media (max-width: 420px) {
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-content">
+    <div class="logo">👑 Emperor Data Hub</div>
+    <div class="crown">📶</div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>EMPEROR DATA HUB</h1>
+  <p>Affordable Data • Easy Ordering • Your Data, Your Way</p>
+</section>
+
+<main class="container">
+
+  <h2 class="section-title">Choose Your Data</h2>
+
+  <!-- MTN -->
+  <section class="network">
+    <div class="network-title">🟡 MTN DATA</div>
+
+    <div class="products">
+
+      <div class="product">
+        <h3>1GB</h3>
+        <div class="price">GH₵5.50</div>
+        <button onclick="selectBundle('MTN', '1GB', 5.50)">
+          Buy 1GB
+        </button>
+      </div>
+
+      <div class="product">
+        <h3>2GB</h3>
+        <div class="price">GH₵10.00</div>
+        <button onclick="selectBundle('MTN', '2GB', 10)">
+          Buy 2GB
+        </button>
+      </div>
+
+      <div class="product">
+        <h3>5GB</h3>
+        <div class="price">GH₵24.00</div>
+        <button onclick="selectBundle('MTN', '5GB', 24)">
+          Buy 5GB
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- TELECEL -->
+  <section class="network">
+    <div class="network-title">🔴 TELECEL DATA</div>
+
+    <div class="products">
+
+      <div class="product">
+        <h3>1GB</h3>
+        <div class="price">GH₵5.50</div>
+        <button onclick="selectBundle('Telecel', '1GB', 5.50)">
+          Buy 1GB
+        </button>
+      </div>
+
+      <div class="product">
+        <h3>2GB</h3>
+        <div class="price">GH₵10.00</div>
+        <button onclick="selectBundle('Telecel', '2GB', 10)">
+          Buy 2GB
+        </button>
+      </div>
+
+      <div class="product">
+        <h3>5GB</h3>
+        <div class="price">GH₵24.00</div>
+        <button onclick="selectBundle('Telecel', '5GB', 24)">
+          Buy 5GB
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- AIRTELTIGO -->
+  <section class="network">
+    <div class="network-title">🔵 AIRTELTIGO DATA</div>
+
+    <div class="products">
+
+      <div class="product">
+        <h3>1GB</h3>
+        <div class="price">GH₵5.50</div>
+        <button onclick="selectBundle('AirtelTigo', '1GB', 5.50)">
+          Buy 1GB
+        </button>
+      </div>
+
+      <div class="product">
+        <h3>2GB</h3>
+        <div class="price">GH₵10.00</div>
+        <button onclick="selectBundle('AirtelTigo', '2GB', 10)">
+          Buy 2GB
+        </button>
+      </div>
+
+      <div class="product">
+        <h3>5GB</h3>
+        <div class="price">GH₵24.00</div>
+        <button onclick="selectBundle('AirtelTigo', '5GB', 24)">
+          Buy 5GB
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ORDER FORM -->
+  <section class="order-box" id="order">
+
+    <h2>🛒 Place Your Order</h2>
+
+    <label>Network</label>
+    <select id="network">
+      <option value="">Select network</option>
+      <option>MTN</option>
+      <option>Telecel</option>
+      <option>AirtelTigo</option>
+    </select>
+
+    <label>Bundle</label>
+    <select id="bundle">
+      <option value="">Select bundle</option>
+      <option>1GB</option>
+      <option>2GB</option>
+      <option>5GB</option>
+    </select>
+
+    <label>Customer Phone Number</label>
+    <input
+      type="tel"
+      id="phone"
+      placeholder="e.g. 0241234567"
+      maxlength="10"
+    >
+
+    <div class="order-summary">
+      <strong>Order:</strong>
+      <div id="summary">No bundle selected</div>
+    </div>
+
+    <button class="buy-button" onclick="placeOrder()">
+      Continue
+    </button>
+
+    <div class="notice">
+      🔒 This is currently a demo store. Real payment and automatic
+      data delivery will be connected in the next step.
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <strong>👑 Emperor Data Hub</strong>
+  <br><br>
+  Your Data, Your Way! 📶
+</footer>
+
+
+<script>
+
+  let selectedNetwork = "";
+  let selectedBundle = "";
+  let selectedPrice = 0;
+
+
+  function selectBundle(network, bundle, price) {
+
+    selectedNetwork = network;
+    selectedBundle = bundle;
+    selectedPrice = price;
+
+    document.getElementById("network").value = network;
+    document.getElementById("bundle").value = bundle;
+
+    updateSummary();
+
+    document.getElementById("order").scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+
+
+  function updateSummary() {
+
+    const network =
+      document.getElementById("network").value;
+
+    const bundle =
+      document.getElementById("bundle").value;
+
+    let price = selectedPrice;
+
+    if (network && bundle) {
+
+      if (bundle === "1GB") price = 5.50;
+      if (bundle === "2GB") price = 10.00;
+      if (bundle === "5GB") price = 24.00;
+
+      document.getElementById("summary").innerHTML =
+        network + " " + bundle +
+        " — <strong>GH₵" + price.toFixed(2) + "</strong>";
+
+    } else {
+
+      document.getElementById("summary").innerHTML =
+        "No bundle selected";
+    }
+  }
+
+
+  document
+    .getElementById("network")
+    .addEventListener("change", updateSummary);
+
+  document
+    .getElementById("bundle")
+    .addEventListener("change", updateSummary);
+
+
+  function placeOrder() {
+
+    const network =
+      document.getElementById("network").value;
+
+    const bundle =
+      document.getElementById("bundle").value;
+
+    const phone =
+      document.getElementById("phone").value.trim();
+
+    if (!network) {
+      alert("Please select a network.");
+      return;
+    }
+
+    if (!bundle) {
+      alert("Please select a bundle.");
+      return;
+    }
+
+    if (!/^0[0-9]{9}$/.test(phone)) {
+      alert("Please enter a valid Ghana phone number.");
+      return;
+    }
+
+    let price = 0;
+
+    if (bundle === "1GB") price = 5.50;
+    if (bundle === "2GB") price = 10.00;
+    if (bundle === "5GB") price = 24.00;
+
+    alert(
+      "Order received!\\n\\n" +
+      network + " " + bundle +
+      "\\nPhone: " + phone +
+      "\\nAmount: GH₵" + price.toFixed(2) +
+      "\\n\\nPayment and automatic delivery will be connected later."
+    );
+  }
+
+</script>
+
+</body>
+          </html>
